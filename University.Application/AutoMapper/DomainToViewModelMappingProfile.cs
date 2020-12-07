@@ -6,7 +6,8 @@ namespace University.Application.AutoMapper
     {
         public DomainToViewModelMappingProfile()
         {
-            CreateMap<Core.Entities.Student, ViewModels.StudentViewModel>();
+            CreateMap<Core.Entities.Student, ViewModels.StudentViewModel>()
+                .ForSourceMember(m => m.StudentsSubjects, mo => mo.DoNotValidate());
         }
     }
 }

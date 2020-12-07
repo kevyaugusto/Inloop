@@ -47,6 +47,7 @@ namespace University.Application.Services
         public async Task<bool> Delete(int id)
         {
             Core.Entities.Student student = await _studentRepository.GetById(id);
+            student.DeletedAt = DateTime.Now;
             _studentRepository.Delete(student);
             return await _studentRepository.UnitOfWork.Save();
         }
@@ -54,6 +55,7 @@ namespace University.Application.Services
         public async Task<bool> Update(StudentViewModel vmStudent)
         {
             Core.Entities.Student student = _mapper.Map<Core.Entities.Student>(vmStudent);
+            student.LastUpdate = DateTime.Now;
             _studentRepository.Update(student);
             return await _studentRepository.UnitOfWork.Save();
         }

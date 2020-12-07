@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using University.Core.Interfaces;
+﻿using University.Core.Interfaces;
 
 namespace University.Core.Entities
 {
